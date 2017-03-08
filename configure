@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ "$#" -eq "0" ] then
+	mode=release
+elif [ "$#" -eq "1" ] then
+	mode=$1
+else then
+	echo Usage: $0 \[debug\|release\]
+	exit
+fi
+
+if [ "$mode" == "debug" ] then
+	echo '
+		GCC_OPT := -ggdb
+		LINK_OPT :=
+	' > settings.mk
+else then
+	echo '
+		GCC_OPT := -O3
+		LINK_OPT :=
+	' > settings.mk
+fi

@@ -8,7 +8,10 @@ OUTPUT_FILE = ../build/ClubcChat2Srvd
 GCC_OPT += -std=c++0x -fpermissive -DUSE_UNIX_ODBC -DCREATE_EXECUTE_FILE
 LINK_OPT += -pthread
 
-all: build/depen.dep $(OUTPUT_FILE)
+all: dirs build/depen.dep $(OUTPUT_FILE)
+
+dirs:
+	mkdir -p build
 
 $(OUTPUT_FILE): $(C_OBJECT)
 	g++ $(GCC_OPT) $(C_OBJECT) -o $(OUTPUT_FILE) $(LINK_OPT)

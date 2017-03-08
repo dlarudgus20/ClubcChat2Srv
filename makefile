@@ -1,4 +1,5 @@
 all:
+	mkdir -p build
 	make -C ClubcChat2Srv
 
 clean:
